@@ -17,7 +17,7 @@
     </div>
     <div id="table"></div>
     <script>
-      var eventSelect = $('#eventSelect').MPEventSelect();
+      //var eventSelect = $('#eventSelect').MPEventSelect();
       var propSelect  = $('#propSelect').MPPropertySelect();
       var dateSelect  = $('#dateSelect').MPDatepicker();
       var eventGraph  = $('#graph').MPChart({chartType: 'line'});
@@ -28,11 +28,11 @@
 
       var runQuery = function() {
         var eventName = eventSelect.MPEventSelect('value'),
-            propName  = propSelect.MPPropertySelect('value'),
+        var propName  = propSelect.MPPropertySelect('value'),
             dateRange = dateSelect.MPDatepicker('value');
 
         if (eventName) {
-          MP.api.segment(eventName, propName, dateRange).done(function(results) {
+          MP.api.segment("Purchase Item", propName, dateRange).done(function(results) {
             eventGraph.MPChart('setData', results);
             eventTable.MPTable('setData', results);
           });
